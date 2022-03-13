@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
     
   workflow_dispatch:
   
@@ -30,12 +30,12 @@ jobs:
         
       - name: Install dependencies for frontend
         run: sudo npm install
-        working-directory: ./frontend
+        working-directory: ./frontend/frontend
 
       - name: Run the tests for frontend
         run: sudo npm test a -- --watchAll=false
-        working-directory: ./frontend
+        working-directory: ./frontend/frontend
         
       - name: Build the frontend
         run: sudo npm run build
-        working-directory: ./frontend
+        working-directory: ./frontend/frontend
